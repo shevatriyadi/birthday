@@ -14,6 +14,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
     }
 
     .page {
@@ -25,6 +26,8 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       max-width: 350px;
       width: 90%;
+      position: relative;
+      z-index: 2;
     }
 
     .page.active {
@@ -59,16 +62,35 @@
     button:hover {
       background: #e07a8a;
     }
+
+    /* bunga */
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 2.5s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: scale(0) translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5) translateY(-150px);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Halaman 1 -->
   <div class="page active" id="page1">
-    <h1>habede iyah</h1>
+    <h1>hbd iyah</h1>
     <img src="cake.png" alt="Kue Ulang Tahun">
-    <p>ada sesuatu dr gw</p>s
-    <button onclick="nextPage()">buka ini.</button>
+    <p>something for you anjay</p>
+    <button onclick="nextPage()">buka yeah</button>
   </div>
 
   <!-- Halaman 2 -->
@@ -76,19 +98,35 @@
     <h1>Untuk Kamu 🤍</h1>
     <img src="friend.jpg" alt="Foto Teman">
     <p>
-      "hbd nyet, ini ulang tahun yg kbrp yh sm gw hmmmz dr umur 13 gasi njir..smph dh lama bgt 
+       "hbd nyet, ini ulang tahun yg kbrp yh sm gw hmmmz dr umur 13 gasi njir..smph dh lama bgt 
       untung gua kg bosen ama elu
       ydh intiny hbd nyet
       doain gw bs nikah sm jeongwoo"
     </p>
-    <p>— dari pacarnya anton</p>
+    <p>— dari pacarnya anton hngggg/p>
   </div>
 
   <script>
     function nextPage() {
-      document.getElementById('page1').classList.remove('active');
-      document.getElementById('page2').classList.add('active');
+      bloomFlowers();
+      setTimeout(() => {
+        document.getElementById('page1').classList.remove('active');
+        document.getElementById('page2').classList.add('active');
+      }, 800);
     }
+
+    function bloomFlowers() {
+      const flowers = ['🌸','🌼','🌷','💐','🌺'];
+      for (let i = 0; i < 20; i++) {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.bottom = '20px';
+        flower.style.animationDuration = (2 + Math.random()) + 's';
+        document.body.appendChild(flower);
+
+        setTimeout(() => flower.remove(),
   </script>
 
 </body>
