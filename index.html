@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 350px;
+      width: 90%;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background: #ee9ca7;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e07a8a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman 1 -->
+  <div class="page active" id="page1">
+    <h1>🎂 Happy Birthday 🎂</h1>
+    <img src="cake.png" alt="Kue Ulang Tahun">
+    <p>Ada sesuatu buat kamu ✨</p>
+    <button onclick="nextPage()">Lihat Ucapan 💌</button>
+  </div>
+
+  <!-- Halaman 2 -->
+  <div class="page" id="page2">
+    <h1>Untuk Kamu 🤍</h1>
+    <img src="friend.jpg" alt="Foto Teman">
+    <p>
+      Selamat ulang tahun! 🎉🎂
+      Semoga di usia yang baru ini kamu selalu sehat, bahagia,
+      dan semua hal baik datang ke hidup kamu.
+      Terima kasih sudah jadi teman yang luar biasa 🤍
+    </p>
+    <p>— dari aku 😊</p>
+  </div>
+
+  <script>
+    function nextPage() {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
